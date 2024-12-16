@@ -11,6 +11,7 @@ namespace Calculator2
         // Dimensões iniciais do formulário
         private Size initialFormSize;
         private Rectangle[] initialControlBounds;
+        private float[] initialFontSizes;
 
         public Form1()
         {
@@ -21,8 +22,12 @@ namespace Calculator2
 
             // Salva as dimensões e posições iniciais de cada controle
             initialControlBounds = new Rectangle[Controls.Count];
+            initialFontSizes = new float[Controls.Count];
             for (int i = 0; i < Controls.Count; i++)
+            {
                 initialControlBounds[i] = Controls[i].Bounds;
+                initialFontSizes[i] = Controls[i].Font.Size;
+            }
         }
 
         private void addOperation_Click(object sender, EventArgs e)
@@ -108,6 +113,11 @@ namespace Calculator2
                 control.Top = (int)(originalBounds.Top * heightRatio);
                 control.Width = (int)(originalBounds.Width * widthRatio);
                 control.Height = (int)(originalBounds.Height * heightRatio);
+
+                // Redimensiona a fonte
+                float originalFontSize = initialFontSizes[i];
+                float newFontSize = originalFontSize * Math.Min(widthRatio, heightRatio);
+                control.Font = new Font(control.Font.FontFamily, newFontSize, control.Font.Style);
             }
 
             this.Refresh();
