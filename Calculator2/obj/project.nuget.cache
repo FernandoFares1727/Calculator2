@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "QMPKkcFO0KiB9Tvflg474u+/ijx3IuxRIh/mJ9yvIgr/ewynpIjUCz02VBCFhN8Hy8LG19LCPBATpq+ijrmFIg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ferna\\OneDrive\\Documentos\\Projetos Git\\Calculator2\\Calculator2\\Calculator2.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ferna\\.nuget\\packages\\cuoreui.winforms\\2024.12.16\\cuoreui.winforms.2024.12.16.nupkg.sha512"
+  ],
+  "logs": []
+}
