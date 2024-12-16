@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.Resize += resizeControl;
+
             button0 = new CuoreUI.Controls.cuiButton();
             button1 = new CuoreUI.Controls.cuiButton();
             button2 = new CuoreUI.Controls.cuiButton();

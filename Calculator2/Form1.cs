@@ -8,9 +8,21 @@ namespace Calculator2
         private readonly char leftBracket = '(';
         private readonly char rightBracket = ')';
 
+        // Dimensões iniciais do formulário
+        private Size initialFormSize;
+        private Rectangle[] initialControlBounds;
+
         public Form1()
         {
             InitializeComponent();
+
+            // Salva as dimensões iniciais do formulário
+            initialFormSize = this.ClientSize;
+
+            // Salva as dimensões e posições iniciais de cada controle
+            initialControlBounds = new Rectangle[Controls.Count];
+            for (int i = 0; i < Controls.Count; i++)
+                initialControlBounds[i] = Controls[i].Bounds;
         }
 
         private void addOperation_Click(object sender, EventArgs e)
@@ -74,6 +86,31 @@ namespace Calculator2
         private void PIButton_Click(object sender, EventArgs e)
         {
             resultTextBox.Content += Math.PI;
+        }
+
+        private void resizeControl(object sender, EventArgs e)
+        {
+            // Obtém as dimensões atuais do formulário
+            int currentFormWidth = this.ClientSize.Width;
+            int currentFormHeight = this.ClientSize.Height;
+
+            // Calcula as proporções de redimensionamento
+            float widthRatio = (float)currentFormWidth / initialFormSize.Width;
+            float heightRatio = (float)currentFormHeight / initialFormSize.Height;
+
+            // Ajusta cada controle com base nos valores originais
+            for (int i = 0; i < Controls.Count; i++)
+            {
+                Control control = Controls[i];
+                Rectangle originalBounds = initialControlBounds[i];
+
+                control.Left = (int)(originalBounds.Left * widthRatio);
+                control.Top = (int)(originalBounds.Top * heightRatio);
+                control.Width = (int)(originalBounds.Width * widthRatio);
+                control.Height = (int)(originalBounds.Height * heightRatio);
+            }
+
+            this.Refresh();
         }
     }
 }
