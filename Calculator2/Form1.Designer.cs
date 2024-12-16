@@ -890,14 +890,14 @@
             resultTextBox.BorderSize = 1;
             resultTextBox.Content = "";
             resultTextBox.Font = new Font("Microsoft Sans Serif", 9.5F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            resultTextBox.ForeColor = Color.Gray;
+            resultTextBox.ForeColor = Color.Black;
             resultTextBox.Location = new Point(12, 16);
             resultTextBox.Margin = new Padding(4);
             resultTextBox.Multiline = false;
             resultTextBox.Name = "resultTextBox";
             resultTextBox.Padding = new Padding(18, 8, 18, 0);
             resultTextBox.PasswordChar = false;
-            resultTextBox.PlaceholderColor = Color.DimGray;
+            resultTextBox.PlaceholderColor = Color.Black;
             resultTextBox.PlaceholderText = "";
             resultTextBox.Rounding = 8;
             resultTextBox.Size = new Size(248, 35);
